@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-var cors = require('cors')
+//var cors = require('cors')
 
 var authenticate = require('./authenticate');
 
@@ -51,7 +51,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(cors());
+//app.use(cors());
 
 
 //app.get('/products/:id', function(req, res, next){
