@@ -1,0 +1,72 @@
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+               <ul class="breadcrumb">
+                   <li><a href="index.html">Home</a></li>
+                   <li class="active">My Templates</li>
+               </ul>
+            </div>
+            <div class="col-xs-12">
+               <h1>My Database Templates</h1>
+               <hr>
+            </div>
+        </div>
+        
+       <div class="row row-content">
+          <div class="col-xs-12 col-sm-9">
+               <div ng-repeat="mytemplate in mytemplates">
+               	<h2>{{ mytemplate.databaseType.templateType }} <span> - </span> 
+    									{{ mytemplate.databaseType.templateDescription }} 
+    						</h2>
+ 	                <h3>Template Fields</h3>    						
+     							<div class="panel panel-default">
+    								 <div class="panel-heading">
+      										<form role="form">
+      												<!--<div class="col-xs-8 col-sm-5"> -->
+        												<div class="form-group">
+          												<label for="fieldname" class="col-sm-2 control-label">Field Name</label>
+          										 		<input type="text" class="form-control" id="fieldname" name="fieldname" placeholder="Enter field name" ng-model="tempattribute.fieldname" required>
+        												</div>
+        											<!--</div> -->
+        											<!-- <div class="col-xs-4 col-sm-6"> -->
+        												<div class="form-group">
+        													
+        													<label for="datatype" class="col-sm-2 control-label">Datatype: </label>
+                            				<label>
+                            					<input type="radio" name="datatype" ng-model="tempattribute.datatype"
+                             						id="datatype1" value="String"> String</label>
+                            				<label>
+                                			<input type="radio" name="datatype" ng-model="tempattribute.datatype"
+                                 				id="datatype2" value="Number"> Number</label>
+                                 	<!-- </div> -->
+                          			</div>
+                          		
+                          		<button type="button" class="btn btn-primary" ng-click="addAttributeField()">Add</button>
+                          	</form>
+    										</div>		
+    								<table class="table" ng-repeat="attribute in mytemplate.templateAttributes" ng-scope>
+    								 	<tr>
+    								 			<th>Field Name</th>
+    								 			<th>Field Datatype</th>
+    								 	</tr>
+    								 	<tr class="table-row">
+    								 			<td>
+    					               <span ng-click="editing = true" ng-hide="editing" ng-bind="attribute.attributeName"></span>
+                						<input ng-model="attribute.attributeName" ng-show="editing" />
+                						<button ng-click="editing = false" ng-show="editing">ok</button>
+    								 			</td>
+    								 			
+    								 			<td>
+    					               <span ng-click="editing = true" ng-hide="editing" ng-bind="attribute.attributeDatatype_id.datatypeName"></span>
+                						<input ng-model="attribute.attributeDatatype_id.datatypeName" ng-show="editing" />
+                						<button ng-click="editing = false" ng-show="editing">ok</button>
+    								 			</td>
+      										<td><button type="button" ng-click="default.notes.delete(note)" class="btn btn-danger">Delete</button></td>
+    								 	</tr>
+    								 	</div>
+    								</div>
+    						
+							</div>
+       		</div>
+    	 </div>
