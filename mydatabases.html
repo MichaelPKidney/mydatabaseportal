@@ -1,0 +1,45 @@
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+               <ul class="breadcrumb">
+                   <li><a href="index.html">Home</a></li>
+                   <li class="active">My Databases</li>
+               </ul>
+            </div>
+            <div class="col-xs-12">
+               <h3>My Databases</h3>
+               <hr>
+            </div>
+        </div>
+        
+     
+          <div class="row row-content">
+          <div class="col-xs-12 col-sm-9">
+               <div ng-repeat="mydatabase in mydatabases">
+               	<h2>{{ mydatabase.templateType.templateType }} <span> - </span> 
+    									{{ mydatabase.templateType.templateDescription }} 
+    						</h2>
+ 	                <h3>Database Fields</h3>    						
+    								<table class="table">
+    								 	<tr class="table-row">
+    								 			<th>Field Name</th>
+    								 			<th>Field Datatype</th>
+    								 			<th>Field Value</th>
+    								 	</tr>
+    								 	<tr class="table-row" ng-repeat="attribute in mydatabase.databaseAttributes">
+    								 			<td> {{attribute.dbAttributeName}} </td>
+    								 			<td> {{attribute.dbAttributeDatatype.datatypeName}} </td>
+    								 			<td>
+    					              <span ng-click="editing = true" ng-hide="editing" ng-bind="attribute.dbAttributeValue"></span>
+                						<input ng-model="attribute.dbAttributeValue" ng-show="editing" />
+                						<button ng-click="editing = false" ng-show="editing">ok</button>
+    								 			</td>		
+    								 	</td>
+    								</div>
+    								
+    							</div>
+    							
+							</div>
+       		</div>
+    	 </div>
